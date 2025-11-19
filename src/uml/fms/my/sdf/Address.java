@@ -1,67 +1,22 @@
 package uml.fms.my.sdf;
 
-public class Address {
+public interface Address {
 	
-	private String road;
-    private String city;
-    private int zipCode;
+	 /**
+     * Retourne le nom de la rue.
+     */
+    public String getRoad();
 
-	
-	/**
-	 * @param road
-	 * @param city
-	 * @param zipCode
-	 */
-	public Address(String road, String city, int zipCode) {
-		super();
-		this.road = road;
-		this.city = city;
-		this.zipCode = zipCode;
-	}
-		
+    /**
+     * Retourne le nom de la ville.
+     */
+    public String getCity();
 
-	/**
-	 * @return the road
-	 */
-	public String getRoad() {
-		return road;
-	}
+    /**
+     * Retourne le code postal.
+     */
+    public int getZipCode();
 
-	/**
-	 * @param road the road to set
-	 */
-	public void setRoad(String road) {
-		this.road = road;
-	}
-
-	/**
-	 * @return the city
-	 */
-	public String getCity() {
-		return city;
-	}
-
-	/**
-	 * @param city the city to set
-	 */
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	/**
-	 * @return the zipCode
-	 */
-	public int getZipCode() {
-		return zipCode;
-	}
-
-	/**
-	 * @param zipCode the zipCode to set
-	 */
-	public void setZipCode(int zipCode) {
-		this.zipCode = zipCode;
-	}
-
-
-
+    
+    public void setAddress(String road, String city, int zipCode);
 }
