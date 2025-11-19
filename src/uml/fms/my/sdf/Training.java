@@ -6,9 +6,9 @@ import java.util.List;
 
 public class Training {
     // Attributes
-    String trainingName;
-    Date startDate;
-    Date endDate;
+    private String trainingName;
+    private Date startDate;
+    private Date endDate;
 
     private List<Student> students;
     private List<Lesson> lessons;
@@ -71,7 +71,7 @@ public class Training {
     public List<Lesson> getLessons() {
         return new ArrayList<>(lessons);
     }
-    
+
     @Override
     public String toString() {
         return "Training Name: " + trainingName + ", Start Date: " + startDate + ", End Date: " + endDate;
