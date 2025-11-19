@@ -1,6 +1,20 @@
 package uml.fms.my.sdf;
 import java.time.LocalDate;
 
+/**
+ * The Lesson class represents a single lesson in a training program.
+ * 
+ * Each lesson has:
+ * - a name
+ * - a start date
+ * - an end date
+ * - the name of the training it belongs to
+ * - the name of the teacher in charge
+ * 
+ * You can create a lesson with or without assigning a teacher. 
+ * It provides methods to update the teacher and the lesson dates.
+ * The class ensures that the end date is always after the start date.
+ */
 public class Lesson {
 	
 	// Attributes
@@ -13,7 +27,17 @@ public class Lesson {
 	// Constant
 	private static final String DEFAULT_TEACHER = "unknown";
 	
-	// Constructors
+	// Constructors -----------------------------------------------------------------------------------
+
+	/**
+	 * Creates a Lesson with a teacher assigned.
+	 * 
+	 * @param name : The name of the lesson
+	 * @param startDate : The start date of the lesson
+	 * @param endDate : The end date of the lesson
+	 * @param training : The training this lesson belongs to
+	 * @param teacher : The teacher responsible for this lesson
+	 */
 	public Lesson(String name, LocalDate startDate, LocalDate endDate, Training training, Teacher teacher) {
 		setName(name);
 		setStartDate(startDate);
@@ -22,6 +46,14 @@ public class Lesson {
 		this.teacherName = teacher.getFullName();
 	}
 	
+	/**
+	 * Creates a Lesson without a teacher (default teacher will be "unknown").
+	 * 
+	 * @param name : The name of the lesson
+	 * @param startDate : The start date of the lesson
+	 * @param endDate : The end date of the lesson
+	 * @param training : The training this lesson belongs to
+	 */
 	public Lesson(String name, LocalDate startDate, LocalDate endDate, Training training) {
 		setName(name);
 		setStartDate(startDate);
@@ -30,8 +62,8 @@ public class Lesson {
 		this.teacherName = DEFAULT_TEACHER;
 	}
 	
+	// Getters - Setters -----------------------------------------------------------------------------------
 
-	// Getters Setters
 	public String getName() {
 		return name;
 	}
@@ -45,8 +77,11 @@ public class Lesson {
 	}
 
 	public void setStartDate(LocalDate startDate) {
-		// vérifier format localdate
-		this.startDate = startDate;
+	// Throws an exception if the new start date is after the current end date.
+		if (startDate.isAfter(this.endDate)) {
+	        throw new IllegalArgumentException("La date de début ne peut pas être après la date de fin !");
+	    }
+	    this.startDate = startDate;
 	}
 
 	public LocalDate getEndDate() {
@@ -54,33 +89,46 @@ public class Lesson {
 	}
 
 	public void setEndDate(LocalDate endDate) {
-		// vérifier que la date est bien après le début de la formation
-		// vérifier format localdate
-		this.endDate = endDate;
+	// Throws an exception if the new end date is before the current start date.
+		if (endDate.isBefore(this.startDate)) {
+	        throw new IllegalArgumentException("La date de fin ne peut pas être avant la date de début !");
+	    }
+	    this.endDate = endDate;
 	}
 	
+	// Methods -----------------------------------------------------------------------------------
 	
-	// Methods
+	/**
+	 * Returns a string representation of the lesson with all its details.
+	 */
 	@Override
 	public String toString() {
-		return "Cours de " 
-				+ this.name + " de la formation " 
-				+ this.trainingName + " : du " 
-				+ this.startDate + " au "
-				+ this.endDate + " avec "
-				+ this.teacherName;
+		return String.format("Le cours de %s de la formation %s aura lieu du %s au %s avec %s",
+		        this.name, this.trainingName, this.startDate, this.endDate, this.teacherName);
 	}
 	
+	/**
+	 * Updates the teacher of this lesson.
+	 * 
+	 * @param teacher : The new teacher
+	 */
 	public void setTeacher(Teacher teacher) {
 	    this.teacherName = teacher.getFullName();
 	}
 	
+	/**
+	 * Updates both the start and end dates of this lesson.
+	 * Throws an exception if the end date is before the start date.
+	 * 
+	 * @param startDate : The new start date
+	 * @param endDate : The new end date
+	 */
 	public void setDates(LocalDate startDate, LocalDate endDate) {
+		if (endDate.isBefore(startDate)) {
+	        throw new IllegalArgumentException("La date de fin de formation ne peut pas être avant la date de début de formation !");
+	    }
 	    this.startDate = startDate;
 	    this.endDate = endDate;
 	}
-	
-	
-
 	
 }
