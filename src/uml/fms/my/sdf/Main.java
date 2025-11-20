@@ -2,6 +2,8 @@ package uml.fms.my.sdf;
 
 import java.util.Map;
 import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
 import java.time.LocalDate;
 
 
@@ -29,13 +31,14 @@ public class Main {
 
     }};
 
-
-    // Ajouter des élèves
-
-
-
+    List<Training> trainings = new ArrayList<Training>(){{
+        add(new Training("Java", LocalDate.parse("2025-10-10"), LocalDate.parse("2025-11-26")));
+        add(new Training("Python", LocalDate.parse("2025-09-22"), LocalDate.parse("2025-11-26")));
+    }};
+    
+   
         public void main (String[] args) {
-
+             
 
         }
 }
