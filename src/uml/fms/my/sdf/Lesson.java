@@ -79,7 +79,7 @@ public class Lesson {
 	public void setStartDate(LocalDate startDate) {
 	// Throws an exception if the new start date is after the current end date.
 		if (startDate.isAfter(this.endDate)) {
-	        throw new IllegalArgumentException("La date de début ne peut pas être après la date de fin !");
+	        throw new IllegalArgumentException("The start date cannot be after the end date!");
 	    }
 	    this.startDate = startDate;
 	}
@@ -91,7 +91,7 @@ public class Lesson {
 	public void setEndDate(LocalDate endDate) {
 	// Throws an exception if the new end date is before the current start date.
 		if (endDate.isBefore(this.startDate)) {
-	        throw new IllegalArgumentException("La date de fin ne peut pas être avant la date de début !");
+	        throw new IllegalArgumentException("The end date cannot be before the start date!");
 	    }
 	    this.endDate = endDate;
 	}
@@ -103,7 +103,7 @@ public class Lesson {
 	 */
 	@Override
 	public String toString() {
-		return String.format("Le cours de %s de la formation %s aura lieu du %s au %s avec %s",
+		return String.format("The %s lesson of the %s training program will take place from %s to %s with %s.",
 		        this.name, this.trainingName, this.startDate, this.endDate, this.teacherName);
 	}
 	
@@ -125,7 +125,7 @@ public class Lesson {
 	 */
 	public void setDates(LocalDate startDate, LocalDate endDate) {
 		if (endDate.isBefore(startDate)) {
-	        throw new IllegalArgumentException("La date de fin de formation ne peut pas être avant la date de début de formation !");
+	        throw new IllegalArgumentException("The lesson end date cannot be before the lesson start date!");
 	    }
 	    this.startDate = startDate;
 	    this.endDate = endDate;
