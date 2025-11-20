@@ -1,20 +1,19 @@
 package uml.fms.my.sdf;
 
-import java.util.Date;
-import java.util.List;
+import java.time.LocalDate;
 
 public class Teacher extends Person {
 
-    private Date date;
+    private LocalDate date;
     
-    public Teacher (String firstName, String lastName, Integer age, Date date, String road, String city, int zipCode) {
+    public Teacher (String firstName, String lastName, Integer age, LocalDate date, String road, String city, int zipCode) {
         super(firstName, lastName, age);
         this.date = date;
         setAddress(road, city, zipCode);
     }
 
     // Getters
-    public Date getDate() {
+    public LocalDate getDate() {
         return this.date;
     }
 
