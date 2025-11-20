@@ -31,9 +31,20 @@ public class Main {
 
     }};
 
+    
+
     List<Training> trainings = new ArrayList<Training>(){{
-        add(new Training("Java", LocalDate.parse("2025-10-10"), LocalDate.parse("2025-11-26")));
-        add(new Training("Python", LocalDate.parse("2025-09-22"), LocalDate.parse("2025-11-26")));
+        Training t1 = new Training("Java", LocalDate.parse("2025-10-10"), LocalDate.parse("2025-11-26"));
+        add(t1);
+        Training t2 = new Training("Python", LocalDate.parse("2025-09-22"), LocalDate.parse("2025-11-26"));
+        add(t2);
+    }};
+
+    List<Lesson> lessons = new ArrayList<Lesson>(){{
+        Lesson l1 = new Lesson("AlgoPython", LocalDate.parse("2025-09-22"), LocalDate.parse("2025-09-29"), trainings.get(1), (Teacher) persons.get("T1"));
+        add(l1);
+        Lesson l2 = new Lesson("PooPython", LocalDate.parse("2025-10-01"), LocalDate.parse("2025-10-08"), trainings.get(1), (Teacher) persons.get("T2"));
+        add(l2);
     }};
     
    
