@@ -1,26 +1,24 @@
 package uml.fms.my.sdf;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-// import java.util.ArrayList;
-// import java.util.List;
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Training {
+
     // Attributes
     private String trainingName;
-    private LocalDate startDate;
-    private LocalDate endDate;
+    private Date startDate;
+    private Date endDate;
 
-    // private List<Student> students;
-    // private List<Lesson> lessons;
+    private List<Student> students;
+    private List<Lesson> lessons;
 
     // Constructor
-    public Training(String trainingName, LocalDate startDate, LocalDate endDate) {
+    public Training(String trainingName, Date startDate, Date endDate) {
         this.trainingName = trainingName;
         this.startDate = startDate;
         this.endDate = endDate;
-        // this.students = new ArrayList<>();
-        // this.lessons = new ArrayList<>();
     }
 
     // Getters and Setters
@@ -32,64 +30,57 @@ public class Training {
         return trainingName;
     }
 
-    public void setStartDate(LocalDate startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
-    public LocalDate getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
+    public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
 
-    public LocalDate getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
-
     // Methods to manage students and lessons
-    // public void addStudent(Student student) {
-    //     if (!students.contains(student)) {
-    //         students.add(student);
-    //     }
-    // }
+    public void addStudent(Student student) {
+        if (!students.contains(student)) {
+            students.add(student);
+        }
+    }
 
-    // public void removeStudent(Student student) {
-    //     students.remove(student);
-    // }
+    public void removeStudent(Student student) {
+        students.remove(student);
+    }
 
-    // public List<Student> getStudents() {
-    //     return new ArrayList<>(students);
-    // }
+    public List<Student> getStudents() {
+        return new ArrayList<>(students);
+    }
 
-    // public void addLesson(Lesson lesson) {
-    //     if (!lessons.contains(lesson)) {
-    //         lessons.add(lesson);
-    //     }
-    // }
+    public void addLesson(Lesson lesson) {
+        if (!lessons.contains(lesson)) {
+            lessons.add(lesson);
+        }
+    }
 
-    // public void removeLesson(Lesson lesson) {
-    //     lessons.remove(lesson);
-    // }
+    public void removeLesson(Lesson lesson) {
+        lessons.remove(lesson);
+    }
 
-    // public List<Lesson> getLessons() {
-    //     return new ArrayList<>(lessons);
+    public List<Lesson> getLessons() {
+        return new ArrayList<>(lessons);
+    }
 
     @Override
     public String toString() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return "Training Name: " + trainingName + 
-               ", Start Date: " + startDate.format(formatter) + 
-               ", End Date: " + endDate.format(formatter);
+        return "Training Name: " + trainingName + ", Start Date: " + startDate + ", End Date: " + endDate;
     }
 
     public static void main(String[] args) {
-        Training training = new Training("Java Basics", 
-            LocalDate.of(2024, 7, 1), 
-            LocalDate.of(2024, 7, 15));
+        Training training = new Training("Java Basics", Date.valueOf("2024-07-01"), Date.valueOf("2024-07-15"));
         System.out.println(training.toString());
-        
-       
     }
 }
