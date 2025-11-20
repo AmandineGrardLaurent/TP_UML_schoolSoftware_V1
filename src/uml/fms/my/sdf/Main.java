@@ -32,12 +32,13 @@ public class Main {
     }};
 
     
-
     List<Training> trainings = new ArrayList<Training>(){{
         Training t1 = new Training("Java", LocalDate.parse("2025-10-10"), LocalDate.parse("2025-11-26"));
         add(t1);
         Training t2 = new Training("Python", LocalDate.parse("2025-09-22"), LocalDate.parse("2025-11-26"));
         add(t2);
+        Training t3 = new Training("Angular", LocalDate.parse("2025-12-15"), LocalDate.parse("2025-12-31"));
+        add(t3);
     }};
 
     List<Lesson> lessons = new ArrayList<Lesson>(){{
@@ -45,6 +46,8 @@ public class Main {
         add(l1);
         Lesson l2 = new Lesson("PooPython", LocalDate.parse("2025-10-01"), LocalDate.parse("2025-10-08"), trainings.get(1), (Teacher) persons.get("T2"));
         add(l2);
+        Lesson l3 = new Lesson("AlgoJava", LocalDate.parse("2025-11-01"), LocalDate.parse("2025-11-08"), trainings.get(0), (Teacher) persons.get("T1"));
+        add(l3);
     }};
     
    
