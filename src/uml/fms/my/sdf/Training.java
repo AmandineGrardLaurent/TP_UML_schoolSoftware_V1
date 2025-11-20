@@ -75,7 +75,6 @@ public class Training {
 
     // public List<Lesson> getLessons() {
     //     return new ArrayList<>(lessons);
-    // }
 
     @Override
     public String toString() {

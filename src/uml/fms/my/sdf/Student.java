@@ -1,4 +1,4 @@
-package src.uml.fms.my.sdf;
+package uml.fms.my.sdf;
 
 public class Student extends Person {
 
