@@ -1,6 +1,6 @@
 package uml.fms.my.sdf;
 
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,17 +8,29 @@ public class Training {
 
     // Attributes
     private String trainingName;
-    private Date startDate;
-    private Date endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
 
     private List<Student> students;
     private List<Lesson> lessons;
 
     // Constructor
-    public Training(String trainingName, Date startDate, Date endDate) {
+    public Training(String trainingName, LocalDate startDate, LocalDate endDate) {
+        validateDates(startDate, endDate);
         this.trainingName = trainingName;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.students = new ArrayList<>();
+        this.lessons = new ArrayList<>();
+    }
+
+    // Validation method
+    private void validateDates(LocalDate start, LocalDate end) {
+        if (start.isAfter(end)) {
+            throw new IllegalArgumentException(
+                "La date de début ne peut pas être après la date de fin."
+            );
+        }
     }
 
     // Getters and Setters
@@ -30,19 +42,21 @@ public class Training {
         return trainingName;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
+        validateDates(startDate, this.endDate);
         this.startDate = startDate;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDate endDate) {
+        validateDates(this.startDate, endDate);
         this.endDate = endDate;
     }
 
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
     // Methods to manage students and lessons
@@ -79,8 +93,10 @@ public class Training {
         return "Training Name: " + trainingName + ", Start Date: " + startDate + ", End Date: " + endDate;
     }
 
-    public static void main(String[] args) {
-        Training training = new Training("Java Basics", Date.valueOf("2024-07-01"), Date.valueOf("2024-07-15"));
-        System.out.println(training.toString());
-    }
+    // public static void main(String[] args) {
+    //     Training training = new Training("Java Basics", 
+    //         LocalDate.of(2024, 7, 1), 
+    //         LocalDate.of(2025, 7, 15));
+    //     System.out.println(training.toString());
+    // }
 }
