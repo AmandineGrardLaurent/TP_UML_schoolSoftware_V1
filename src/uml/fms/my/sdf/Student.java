@@ -1,4 +1,4 @@
-package src.uml.fms.my.sdf;
+package uml.fms.my.sdf;
 
 import java.util.ArrayList;
 import java.util.List;

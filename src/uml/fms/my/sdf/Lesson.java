@@ -34,7 +34,8 @@ public class Lesson {
 	// Constant
 	private static final String DEFAULT_TEACHER = "unknown";
 
-	// Constructors -----------------------------------------------------------------------------------
+	// Constructors
+	// -----------------------------------------------------------------------------------
 
 	/**
 	 * Creates a Lesson with a teacher assigned.
