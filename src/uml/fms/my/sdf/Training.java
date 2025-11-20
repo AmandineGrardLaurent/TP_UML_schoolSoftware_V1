@@ -2,8 +2,8 @@ package uml.fms.my.sdf;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
+// import java.util.ArrayList;
+// import java.util.List;
 
 public class Training {
     // Attributes
@@ -49,15 +49,15 @@ public class Training {
     }
 
     // Methods to manage students and lessons
-    public void addStudent(Student student) {
-        if (!students.contains(student)) {
-            students.add(student);
-        }
-    }
+    // public void addStudent(Student student) {
+    //     if (!students.contains(student)) {
+    //         students.add(student);
+    //     }
+    // }
 
-    public void removeStudent(Student student) {
-        students.remove(student);
-    }
+    // public void removeStudent(Student student) {
+    //     students.remove(student);
+    // }
 
     // public List<Student> getStudents() {
     //     return new ArrayList<>(students);
