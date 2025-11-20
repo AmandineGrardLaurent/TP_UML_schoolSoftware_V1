@@ -16,11 +16,21 @@ public class Training {
 
     // Constructor
     public Training(String trainingName, LocalDate startDate, LocalDate endDate) {
+        validateDates(startDate, endDate);
         this.trainingName = trainingName;
         this.startDate = startDate;
         this.endDate = endDate;
         this.students = new ArrayList<>();
         this.lessons = new ArrayList<>();
+    }
+
+    // Validation method
+    private void validateDates(LocalDate start, LocalDate end) {
+        if (start.isAfter(end)) {
+            throw new IllegalArgumentException(
+                "La date de début ne peut pas être après la date de fin."
+            );
+        }
     }
 
     // Getters and Setters
@@ -33,6 +43,7 @@ public class Training {
     }
 
     public void setStartDate(LocalDate startDate) {
+        validateDates(startDate, this.endDate);
         this.startDate = startDate;
     }
 
@@ -41,6 +52,7 @@ public class Training {
     }
 
     public void setEndDate(LocalDate endDate) {
+        validateDates(this.startDate, endDate);
         this.endDate = endDate;
     }
 
@@ -75,7 +87,8 @@ public class Training {
 
     public List<Lesson> getLessons() {
         return new ArrayList<>(lessons);
-}
+    }
+
     @Override
     public String toString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -89,7 +102,5 @@ public class Training {
             LocalDate.of(2024, 7, 1), 
             LocalDate.of(2025, 7, 15));
         System.out.println(training.toString());
-        
-       
     }
 }
