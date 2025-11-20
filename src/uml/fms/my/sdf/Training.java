@@ -97,10 +97,10 @@ public class Training {
                ", End Date: " + endDate.format(formatter);
     }
 
-    public static void main(String[] args) {
-        Training training = new Training("Java Basics", 
-            LocalDate.of(2024, 7, 1), 
-            LocalDate.of(2025, 7, 15));
-        System.out.println(training.toString());
-    }
+    // public static void main(String[] args) {
+    //     Training training = new Training("Java Basics", 
+    //         LocalDate.of(2024, 7, 1), 
+    //         LocalDate.of(2025, 7, 15));
+    //     System.out.println(training.toString());
+    // }
 }
