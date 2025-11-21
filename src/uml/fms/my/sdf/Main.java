@@ -40,6 +40,7 @@ public class Main {
         Training t3 = new Training("Angular", LocalDate.parse("2025-12-15"), LocalDate.parse("2025-12-31"));
         add(t3);
         Training t4 = new Training("Sport", LocalDate.parse("2025-12-15"), LocalDate.parse("2025-12-31"));
+        add(t4);
     }};
 
     List<Lesson> lessons = new ArrayList<Lesson>(){{
