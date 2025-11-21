@@ -34,8 +34,7 @@ public class Lesson {
 	// Constant
 	private static final String DEFAULT_TEACHER = "unknown";
 
-	// Constructors
-	// -----------------------------------------------------------------------------------
+	/////////////////////////// Constructors /////////////////////
 
 	/**
 	 * Creates a Lesson with a teacher assigned.
@@ -76,8 +75,7 @@ public class Lesson {
 		this(name, startDate, endDate, training, null);
 	}
 
-	// Getters - Setters
-	// -----------------------------------------------------------------------------------
+	//////////////// Getters - Setters //////////////////////////
 
 	public String getName() {
 		return name;
