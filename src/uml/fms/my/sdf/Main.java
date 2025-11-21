@@ -199,7 +199,7 @@ public class Main {
         System.out.println("\n=== All lessons ===");
         for (Lesson lesson : schoolService.getAllLessons()) {
             System.out.println(lesson);
-            System.out.println("  -> Etudiants inscrits :");
+            System.out.println("  -> Registered students :");
             for (Student s : lesson.getStudents()) {
                 System.out.println("     - " + s.getFullName() + " (n° " + s.getNumber() + ")");
             }
@@ -216,6 +216,32 @@ public class Main {
                 System.out.println("     - " + l.getName());
             }
             System.out.println();
+        }
+
+        /////////////////// LESSONS BY TEACHER ///////////////////////////////
+
+        System.out.println("\n=== Lessons taught by 'Dupont Jean' ===");
+        List<Lesson> dupontLessons = schoolService.findLessonsByTeacherFullName("Dupont Jean");
+        for (Lesson l : dupontLessons) {
+            System.out.println("- " + l.getName() + " [" 
+                    + l.getStartDate() + " -> " + l.getEndDate() + "]"
+                    + " (Training : " + l.getTraining().getTrainingName() + ")");
+        }
+
+        System.out.println("\n=== Lessons taught by 'Bertrand Paul' ===");
+        List<Lesson> bertrandLessons = schoolService.findLessonsByTeacherFullName("Bertrand Paul");
+        for (Lesson l : bertrandLessons) {
+            System.out.println("- " + l.getName() + " [" 
+                    + l.getStartDate() + " -> " + l.getEndDate() + "]"
+                    + " (Training : " + l.getTraining().getTrainingName() + ")");
+        }
+
+        System.out.println("\n=== Lessons taught by 'Ali Mohamed' ===");
+        List<Lesson> aliLessons = schoolService.findLessonsByTeacherFullName("Ali Mohamed");
+        for (Lesson l : aliLessons) {
+            System.out.println("- " + l.getName() + " [" 
+                    + l.getStartDate() + " -> " + l.getEndDate() + "]"
+                    + " (Training : " + l.getTraining().getTrainingName() + ")");
         }
 
         /////////////////// ALL ADDRESSES /////////////////////////////////////
