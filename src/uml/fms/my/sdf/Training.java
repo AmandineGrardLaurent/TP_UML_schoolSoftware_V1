@@ -28,8 +28,7 @@ public class Training {
     private void validateDates(LocalDate start, LocalDate end) {
         if (start.isAfter(end)) {
             throw new IllegalArgumentException(
-                "La date de début ne peut pas être après la date de fin."
-            );
+                    "La date de début ne peut pas être après la date de fin.");
         }
     }
 
@@ -59,6 +58,7 @@ public class Training {
     public LocalDate getEndDate() {
         return endDate;
     }
+
     // Methods to manage students and lessons
     public void addStudent(Student student) {
         if (!students.contains(student)) {
@@ -93,10 +93,4 @@ public class Training {
         return "Training Name: " + trainingName + ", Start Date: " + startDate + ", End Date: " + endDate;
     }
 
-    // public static void main(String[] args) {
-    //     Training training = new Training("Java Basics", 
-    //         LocalDate.of(2024, 7, 1), 
-    //         LocalDate.of(2025, 7, 15));
-    //     System.out.println(training.toString());
-    // }
 }
