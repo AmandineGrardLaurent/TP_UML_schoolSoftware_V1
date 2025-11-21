@@ -39,6 +39,8 @@ public class Main {
         add(t2);
         Training t3 = new Training("Angular", LocalDate.parse("2025-12-15"), LocalDate.parse("2025-12-31"));
         add(t3);
+        Training t4 = new Training("Sport", LocalDate.parse("2025-12-15"), LocalDate.parse("2025-12-31"));
+        add(t4);
     }};
 
     List<Lesson> lessons = new ArrayList<Lesson>(){{
@@ -48,9 +50,19 @@ public class Main {
         add(l2);
         Lesson l3 = new Lesson("AlgoJava", LocalDate.parse("2025-11-01"), LocalDate.parse("2025-11-08"), trainings.get(0), (Teacher) persons.get("T1"));
         add(l3);
+        Lesson l4 = new Lesson("PooJava", LocalDate.parse("2025-11-15"), LocalDate.parse("2025-11-22"), trainings.get(0), (Teacher) persons.get("T2"));
+        add(l4);
+        Lesson l5 = new Lesson("firstJavaProgram", LocalDate.parse("2025-11-23"), LocalDate.parse("2025-11-30"), trainings.get(0), (Teacher) persons.get("T2"));
+        add(l5);
+        Lesson l6 = new Lesson("shadowBoxing", LocalDate.parse("2025-11-23"), LocalDate.parse("2025-11-30"), trainings.get(3), (Teacher) persons.get("T3"));
+        add(l6);
+        Lesson l7 = new Lesson("introductionToAngular", LocalDate.parse("2025-10-01"), LocalDate.parse("2025-10-08"), trainings.get(2), (Teacher) persons.get("T1"));
+        add(l7);
     }};
     
    
+
+
         public void main (String[] args) {
              
 
