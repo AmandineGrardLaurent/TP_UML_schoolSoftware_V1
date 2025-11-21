@@ -1,11 +1,11 @@
 package uml.fms.my.sdf;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Training {
+
     // Attributes
     private String trainingName;
     private LocalDate startDate;
@@ -59,7 +59,6 @@ public class Training {
     public LocalDate getEndDate() {
         return endDate;
     }
-
     // Methods to manage students and lessons
     public void addStudent(Student student) {
         if (!students.contains(student)) {
@@ -91,10 +90,7 @@ public class Training {
 
     @Override
     public String toString() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return "Training Name: " + trainingName + 
-               ", Start Date: " + startDate.format(formatter) + 
-               ", End Date: " + endDate.format(formatter);
+        return "Training Name: " + trainingName + ", Start Date: " + startDate + ", End Date: " + endDate;
     }
 
     // public static void main(String[] args) {
