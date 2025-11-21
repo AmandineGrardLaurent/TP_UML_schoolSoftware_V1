@@ -177,6 +177,34 @@ public class SchoolService {
     }
 
     /**
+     * Find all lessons taught by a given teacher
+     */
+    public List<Lesson> findLessonsByTeacher(Teacher teacher) {
+        List<Lesson> result = new ArrayList<>();
+
+        if (teacher == null) {
+            return result;
+        }
+
+        for (Lesson lesson : lessons) {
+            if (lesson.getTeacher() != null && lesson.getTeacher().equals(teacher)) {
+                result.add(lesson);
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Find all lessons taught by a teacher full name
+     */
+    public List<Lesson> findLessonsByTeacherFullName(String fullName) {
+        Teacher teacher = findTeacherByFullName(fullName);
+        return findLessonsByTeacher(teacher);
+    }
+
+
+    /**
      * Find lesson by name
      *
      * @param lessonName
